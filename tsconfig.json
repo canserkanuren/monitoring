@@ -4,14 +4,17 @@
         "esModuleInterop": true,
         "target": "es5",
         "lib": ["es5", "es6", "dom"],
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "moduleResolution": "node",
         "sourceMap": true,
         "outDir": "dist",
+        "rootDirs": ["."],
+        "baseUrl": ".",
         "types": ["node"]
     },
     "include": [
         "src/**/*",
+        "logs",
         "dist"
     ]
 }
