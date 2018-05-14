@@ -1,9 +1,9 @@
-import * as express from 'express';
+import express from 'express';
 
-import {WelcomeController} from './controllers';
+import { WelcomeController } from './controllers';
 
 const app: express.Application = express();
-const port: number = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.use('/welcome', WelcomeController);
 

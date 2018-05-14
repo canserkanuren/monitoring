@@ -7,7 +7,7 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 router.get('/:name', (req: Request, res: Response) => {
-    let { name } = req.params;
+    let name = req.params;
 
     res.send(`Hello, ${name}!`);
 });
