@@ -1,0 +1,74 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title!= title
+    meta(name='description', content='')
+    meta(name='theme-color' content='#4DA5F4')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css')
+    script(defer="" type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.7/js/all.js")
+    script(defer="" type="text/javascript" src="/static/js/menuToggle.js")
+body
+  .bd-example.is-paddingless
+    nav.navbar.is-danger
+      .navbar-brand
+        a.navbar-item(href="https://bulma.io")
+          img(src="https://bulma.io/images/bulma-logo-white.png" width="112" height="28")
+        .navbar-burger.burger(data-target="navMenuColordanger-example")
+          span
+          span
+          span
+      #navMenuColordanger-example.navbar-menu
+        .navbar-start
+          a.navbar-item(href="https://bulma.io/")
+            | Home
+          a.navbar-item.is-active(href="/manage")
+            | Manage
+          a.navbar-item(href="/terminal")
+            | Terminal
+          a.navbar-item(href="/status")
+            | Status
+        .navbar-end
+          .navbar-item
+            .field.is-grouped
+              p.control
+                a.bd-sg-button.button(target="_blank" href="/disconnect")
+                  span.icon
+                    <i class="fas fa-sign-out-alt"></i>
+    section.section
+      .tile.is-ancestor
+        .tile.is-vertical.is-8
+          .tile
+          .tile.is-parent
+            article.tile.is-child.notification.white-ter
+              p.title Tasks
+              p.subtitle Currently 324 task running
+              .content
+                .card(style="margin-bottom: 20px;")
+                  .card-content
+                    .content
+                      .columns
+                        .column
+                          p.has-text-centered.has-text-weight-bold PID
+                          p.has-text-centered 3200
+                        .column
+                          p.has-text-centered.has-text-weight-bold CPU%
+                          p.has-text-centered 30
+                        .column
+                          p.has-text-centered.has-text-weight-bold MEM
+                          p.has-text-centered 30
+                        .column
+                          p.has-text-centered.has-text-weight-bold COMMAND
+                          p.has-text-centered usr/lib/Atom
+                  footer.card-footer
+                    a.card-footer-item(href='#') Kill
+                    a.card-footer-item(href='#') Restart
+                // Content
+        .tile.is-parent
+          article.tile.is-child.notification.is-dark
+            .content
+              p.title Users
+              // p.subtitle With even more content
+              .content
+                // Content

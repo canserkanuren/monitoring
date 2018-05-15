@@ -1,3 +1,3 @@
-export * from './welcome.controller';
+export * from './manage.controller';
 export * from './healthcheck.controller';
-export * from './home.controller';
+export * from './exec.controller';
