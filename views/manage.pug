@@ -7,8 +7,8 @@ html
     meta(name='description', content='')
     meta(name='theme-color' content='#4DA5F4')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css')
-    script(defer="" type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.7/js/all.js")
-    script(defer="" type="text/javascript" src="/static/js/menuToggle.js")
+    script(type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.7/js/all.js")
+    script(type="text/javascript" src="/static/js/menuToggle.js")
 body
   .bd-example.is-paddingless
     nav.navbar.is-danger
@@ -21,7 +21,7 @@ body
           span
       #navMenuColordanger-example.navbar-menu
         .navbar-start
-          a.navbar-item(href="https://bulma.io/")
+          a.navbar-item(href="/")
             | Home
           a.navbar-item.is-active(href="/manage")
             | Manage
@@ -43,28 +43,33 @@ body
           .tile.is-parent
             article.tile.is-child.notification.white-ter
               p.title Tasks
-              p.subtitle Currently 324 task running
+              p.subtitle Currently #{processlist.length} task running
               .content
-                .card(style="margin-bottom: 20px;")
-                  .card-content
-                    .content
-                      .columns
-                        .column
-                          p.has-text-centered.has-text-weight-bold PID
-                          p.has-text-centered 3200
-                        .column
-                          p.has-text-centered.has-text-weight-bold CPU%
-                          p.has-text-centered 30
-                        .column
-                          p.has-text-centered.has-text-weight-bold MEM
-                          p.has-text-centered 30
-                        .column
-                          p.has-text-centered.has-text-weight-bold COMMAND
-                          p.has-text-centered usr/lib/Atom
-                  footer.card-footer
-                    a.card-footer-item(href='#') Kill
-                    a.card-footer-item(href='#') Restart
-                // Content
+                .columns
+                  .column
+                    p.has-text-centered.has-text-weight-bold PID
+                  .column
+                    p.has-text-centered.has-text-weight-bold CPU%
+                  .column
+                    p.has-text-centered.has-text-weight-bold MEM
+                  .column
+                    p.has-text-centered.has-text-weight-bold COMMAND
+                  .column
+                    
+                each process in processlist
+                  .columns
+                    .column
+                      p.has-text-centered #{process.pid}
+                    .column
+                      p.has-text-centered #{process.cpu}
+                    .column
+                      p.has-text-centered #{process.memory}
+                    .column
+                      p.has-text-centered #{process.cmd}
+                    .column
+                      form(action='manage/kill/'+ process.pid, method='POST')
+                        button.button.is-pulled-right.is-danger.is-outlined(type='submit') Danger
+                  // Content
         .tile.is-parent
           article.tile.is-child.notification.is-dark
             .content

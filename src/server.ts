@@ -7,7 +7,7 @@ import responseTime from "response-time";
 
 const statusMonitor = require('express-status-monitor')();
 
-import { ManageController, HealthCheckController, ExecController } from './controllers';
+import { HomeController, ManageController, TerminalController, HealthCheckController, ExecController } from './controllers';
 import { logger } from './config';
 
 const app: express.Application = express();
@@ -26,7 +26,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 /**
   Route
 **/
+app.use('/', HomeController);
 app.use('/manage', ManageController);
+app.use('/terminal', TerminalController);
 app.use('/healthcheck', HealthCheckController);
 app.use('/exec', ExecController);
 
