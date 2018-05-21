@@ -1,3 +1,4 @@
+//Menu event
 document.addEventListener('DOMContentLoaded', function () {
 
   // Get all "navbar-burger" elements
@@ -17,9 +18,20 @@ document.addEventListener('DOMContentLoaded', function () {
         // Toggle the class on both the "navbar-burger" and the "navbar-menu"
         $el.classList.toggle('is-active');
         $target.classList.toggle('is-active');
-
       });
     });
   }
+
+});
+
+//jQuery
+$(function() {
+  $("#loadmore").click(function() {
+    var temp = $('div[style="display: none"]').slice(0, 10).attr('style', "display: flex");
+    if(temp.length == 0){
+      $( "#loadmore" ).attr('style', "display: none");
+    }
+  });
+
 
 });

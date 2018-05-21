@@ -6,6 +6,7 @@ const exec = require('child_process').exec;
 const router: Router = Router();
 
 router.post('/', (req: Request, res: Response) => {
+  logger.debug('COMMAND ' + req.body.cmd);
   var cmd = exec(req.body.cmd);
 
   cmd.stdout.on('data', data => {
@@ -13,7 +14,7 @@ router.post('/', (req: Request, res: Response) => {
   });
 
   cmd.stderr.on('data', data => {
-    logger.info('stderr: ' + data.toString());
+    logger.error('stderr: ' + data.toString());
     res.end();
   });
 

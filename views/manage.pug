@@ -8,7 +8,8 @@ html
     meta(name='theme-color' content='#4DA5F4')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css')
     script(type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.7/js/all.js")
-    script(type="text/javascript" src="/static/js/menuToggle.js")
+    script(type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(type="text/javascript" src="/static/js/helper.js")
 body
   .bd-example.is-paddingless
     nav.navbar.is-danger
@@ -54,22 +55,39 @@ body
                     p.has-text-centered.has-text-weight-bold MEM
                   .column
                     p.has-text-centered.has-text-weight-bold COMMAND
-                  .column
-                    
-                each process in processlist
-                  .columns
-                    .column
-                      p.has-text-centered #{process.pid}
-                    .column
-                      p.has-text-centered #{process.cpu}
-                    .column
-                      p.has-text-centered #{process.memory}
-                    .column
-                      p.has-text-centered #{process.cmd}
-                    .column
-                      form(action='manage/kill/'+ process.pid, method='POST')
-                        button.button.is-pulled-right.is-danger.is-outlined(type='submit') Danger
-                  // Content
+                  .column    
+                each process, index in processlist
+                  if index < 10
+                    .columns
+                      .column
+                        p.has-text-centered #{process.pid}
+                      .column
+                        p.has-text-centered #{process.cpu}
+                      .column
+                        p.has-text-centered #{process.memory}
+                      .column
+                        p.has-text-centered #{process.cmd}
+                      .column
+                        form(action='manage/kill/'+ process.pid, method='POST')
+                          button.button.is-pulled-right.is-danger.is-outlined(type='submit') Kill
+                  else
+                    .columns(style="display: none")
+                      .column
+                        p.has-text-centered #{process.pid}
+                      .column
+                        p.has-text-centered #{process.cpu}
+                      .column
+                        p.has-text-centered #{process.memory}
+                      .column
+                        p.has-text-centered #{process.cmd}
+                      .column
+                        form(action='manage/kill/'+ process.pid, method='POST')
+                          button.button.is-pulled-right.is-danger.is-outlined(type='submit') Kill
+                .has-text-centered
+                  a.button.is-danger#loadmore
+                    span.icon.is-small
+                      i.fas.fa-arrow-down  
+                 
         .tile.is-parent
           article.tile.is-child.notification.is-dark
             .content
