@@ -1,6 +1,5 @@
 //Menu event
-document.addEventListener('DOMContentLoaded', function () {
-
+document.addEventListener('DOMContentLoaded', function() {
   // Get all "navbar-burger" elements
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
@@ -8,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
   if ($navbarBurgers.length > 0) {
 
     // Add a click event on each of them
-    $navbarBurgers.forEach(function ($el) {
-      $el.addEventListener('click', function () {
+    $navbarBurgers.forEach(function($el) {
+      $el.addEventListener('click', function() {
 
         // Get the target from the "data-target" attribute
         var target = $el.dataset.target;
@@ -21,17 +20,14 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
-
 });
 
 //jQuery
 $(function() {
   $("#loadmore").click(function() {
     var temp = $('div[style="display: none"]').slice(0, 10).attr('style', "display: flex");
-    if(temp.length == 0){
-      $( "#loadmore" ).attr('style', "display: none");
+    if (temp.length == 0) {
+      $("#loadmore").attr('style', "display: none");
     }
   });
-
-
 });

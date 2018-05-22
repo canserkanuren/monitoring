@@ -9,6 +9,7 @@ const router: Router = Router();
 router.get('/', (req: Request, res: Response) => {
   psList().then(data => {
     res.render('manage', { title: 'Manage', processlist: data });
+    logger.info('Process number ' + data.length);
   });
 });
 
