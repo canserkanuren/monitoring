@@ -21,8 +21,8 @@ router.post('/kill/:pid', (req: Request, res: Response) => {
     cmd = exec('TASKKILL /pid ' + req.params.pid);
     cmdLine = 'TASKKILL /pid ' + req.params.pid;
   } else {
-    cmd = exec('kill -SIGTERM ' + req.params.pid);
-    cmdLine = 'kill -SIGTERM ' + req.params.pid;
+    cmd = exec('kill -15 ' + req.params.pid);
+    cmdLine = 'kill -15 ' + req.params.pid;
   }
 
   logger.debug('COMMAND : ' + cmdLine);
