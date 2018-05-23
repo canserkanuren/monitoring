@@ -25,9 +25,16 @@ document.addEventListener('DOMContentLoaded', function() {
 //jQuery
 $(function() {
   $("#loadmore").click(function() {
-    var temp = $('div[style="display: none"]').slice(0, 10).attr('style', "display: flex");
+    var temp = $('div[style="display: none; align-content: center;"]').slice(0, 10).attr('style', "display: flex");
     if (temp.length == 0) {
       $("#loadmore").attr('style', "display: none");
+    }
+  });
+
+  $("#loadmoreusr").click(function() {
+    var temp = $('div[style="display: none; align-content: right;"]').slice(0, 10).attr('style', "display: flex");
+    if (temp.length == 0) {
+      $("#loadmoreusr").attr('style', "display: none");
     }
   });
 });
