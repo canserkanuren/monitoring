@@ -40,7 +40,6 @@ body
     section.section
       .tile.is-ancestor
         .tile.is-vertical.is-8
-          .tile
           .tile.is-parent
             article.tile.is-child.notification.white-ter
               p.title Tasks
@@ -71,7 +70,7 @@ body
                         form(action='manage/kill/'+ process.pid, method='POST')
                           button.button.is-pulled-right.is-danger.is-outlined(type='submit') Kill
                   else
-                    .columns(style="display: none")
+                    .columns(style="display: none; align-content: center;")
                       .column
                         p.has-text-centered #{process.pid}
                       .column
@@ -87,11 +86,27 @@ body
                   a.button.is-danger#loadmore
                     span.icon.is-small
                       i.fas.fa-arrow-down  
-                 
+
         .tile.is-parent
           article.tile.is-child.notification.is-dark
             .content
               p.title Users
-              // p.subtitle With even more content
-              .content
-                // Content
+                each user, index in users
+                  if index < 10
+                    .columns
+                      .column
+                        p.has-text-centered #{user}
+                      .column
+                        form(action='manage/remove/'+ user, method='POST')
+                          button.button.is-pulled-right.is-danger.is-outlined(type='submit') Remove
+                  else 
+                    .columns(style="display: none; align-content: right;")
+                      .column
+                        p.has-text-centered #{user}
+                      .column
+                        form(action='manage/remove/'+ user, method='POST')
+                          button.button.is-pulled-right.is-danger.is-outlined(type='submit') Remove
+                .has-text-centered
+                  a.button.is-danger#loadmoreusr
+                    span.icon.is-small
+                      i.fas.fa-arrow-down
