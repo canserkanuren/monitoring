@@ -1,0 +1,14 @@
+.home {
+    background-image: url("https://cdn.dribbble.com/users/949592/screenshots/4177526/web-hosting2_1x.jpg");
+    /* background-repeat: no-repeat; */
+    /* background-size: 100%; */
+    width: 100%;
+    height: 100%;
+}
+
+.titre {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    font-size: 220%;
+}
