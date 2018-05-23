@@ -7,7 +7,8 @@
     "start": "node dist/server.js",
     "dev": "tsc-watch --onSuccess \"nodemon --delay 2500ms ./dist/server.js\"",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "build": "tsc"
   },
   "jest": {
     "transform": {

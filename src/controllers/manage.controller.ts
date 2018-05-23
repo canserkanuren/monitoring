@@ -71,8 +71,8 @@ router.post('/remove/:user', (req: Request, res: Response) => {
     cmdLine = 'net user ' + req.params.user + ' /delete ';
   }
   else {
-    cmd = exec('deluser ' + req.params.user);
-    cmdLine = 'deluser ' + req.params.user;
+    cmd = exec('userdel ' + req.params.user);
+    cmdLine = 'userdel ' + req.params.user;
   }
 
   logger.debug('COMMAND : ' + cmdLine);
@@ -90,5 +90,34 @@ router.post('/remove/:user', (req: Request, res: Response) => {
     res.redirect('/manage');
   });
 });
+
+router.post("/add", (req: Request, res: Response) => {
+  var cmd;
+  var cmdLine;
+  
+  if (os.platform() == 'win32') {
+    cmd = exec('net user /add' + req.body.username + req.body.password);
+    cmdLine = 'net user /add' + req.body.username + req.body.password;
+  }
+  else {
+    cmd = exec('useradd -m ' + req.body.username + ' -p ' + req.body.password);
+    cmdLine = 'useradd -m' + req.body.username + ' -p ' + req.body.password;
+  }
+
+  logger.debug('COMMAND : ' + cmdLine);
+
+  cmd.stdout.on('data', data => {
+    logger.info('stdout: ' + data.toString());
+  });
+
+  cmd.stderr.on('data', data => {
+    logger.error('stderr: ' + data.toString());
+  });
+
+  cmd.on('exit', code => {
+    logger.info('child process exited with code ' + code.toString());
+    res.redirect('/manage');
+  });
+})
 
 export const ManageController: Router = router;

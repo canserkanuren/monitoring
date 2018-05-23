@@ -86,11 +86,11 @@ body
                   a.button.is-danger#loadmore
                     span.icon.is-small
                       i.fas.fa-arrow-down  
-
         .tile.is-parent
           article.tile.is-child.notification.is-dark
             .content
               p.title Users
+                button.button.is-pulled-right.is-primary.is-outlined(type='button', id="addUsers") Add Users
                 each user, index in users
                   if index < 10
                     .columns
@@ -110,3 +110,22 @@ body
                   a.button.is-danger#loadmoreusr
                     span.icon.is-small
                       i.fas.fa-arrow-down
+              .modal#modal
+                .modal-background
+                .modal-card
+                  form.form(method="POST", action="manage/add")
+                    header.modal-card-head
+                      p.modal-card-title Modal title
+                      button.delete(aria-label='close', id="closeButton")
+                    section.modal-card-body
+                      .field
+                        .control
+                          label.label(for='username') Username
+                          input.input.is-medium(type='text', placeholder='Username', name="username")
+                      .field
+                        .control
+                          label.label(for='username') Password
+                          input.input.is-medium(type='text', placeholder='Password', name="password")
+                    footer.modal-card-foot
+                      button.button.is-success(id="saveChanges" type="submit") Save changes
+                      button.button(id="cancel") Cancel

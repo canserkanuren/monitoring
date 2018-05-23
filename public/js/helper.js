@@ -37,4 +37,19 @@ $(function() {
       $("#loadmoreusr").attr('style', "display: none");
     }
   });
+  $("#addUsers").click(function() {
+    $("#modal").addClass("is-active");
+  });
+
+  $("#saveChanges").click(function () {
+    $("#modal").removeClass("is-active");
+  });
+
+  $("#cancel").click(function () {
+    $("#modal").removeClass("is-active");
+  });
+
+  $("#closeButton").click(function () {
+    $("#modal").removeClass("is-active");
+  });
 });
