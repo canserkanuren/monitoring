@@ -1,9 +1,12 @@
 .home {
-    background-image: url("https://cdn.dribbble.com/users/949592/screenshots/4177526/web-hosting2_1x.jpg");
-    /* background-repeat: no-repeat; */
-    /* background-size: 100%; */
-    width: 100%;
+    /* background-image: url("/static/assets/server.png"); */
+    background-repeat: no-repeat;
+    background-size: 60%;
+    width: 50%;
     height: 100%;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .titre {
