@@ -8,7 +8,7 @@ yarn-error.log*
 
 # Intellij settings
 *.idea
-/logs*
+logs/*
 # Runtime data
 pids
 *.pid

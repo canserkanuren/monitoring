@@ -24,4 +24,10 @@ router.post('/', (req: Request, res: Response) => {
   });
 });
 
+router.get('/download', (req: Request, res: Response) => {
+  var file = 'logs/monitor.log';
+  logger.info("Download monitor.log started");
+  res.download(file);
+});
+
 export const ExecController: Router = router;
